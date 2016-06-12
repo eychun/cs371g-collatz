@@ -12,7 +12,7 @@ ifeq ($(CC), clang)
     CLANG-CHECK := clang-check
     CXX         := clang++
 else
-    CXX         := g++-5
+    CXX         := g++-4.8
     GCOV        := gcov-4.8
     GCOVFLAGS   := -fprofile-arcs -ftest-coverage
 endif
