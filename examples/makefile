@@ -22,7 +22,7 @@ ifeq ($(CC), clang)
     CLANG-CHECK := clang-check
     CXX         := clang++
 else
-    CXX         := g++-4.8
+    CXX         := g++-5
 endif
 
 %.app: %.c++
