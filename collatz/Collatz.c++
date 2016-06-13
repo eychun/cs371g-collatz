@@ -25,13 +25,44 @@ bool collatz_read (istream& r, int& i, int& j) {
     r >> j;
     return true;}
 
+int cycle_length (int n) {
+    assert(n > 0);
+    int c = 1;
+    while (n > 1) {
+        if ((n % 2) == 0)
+            n = (n / 2);
+        else
+            n = (3 * n) + 1;
+	//k + (k >> 1) + 1;
+        ++c;}
+    assert(c > 0);
+    return c;}
+
 // ------------
 // collatz_eval
 // ------------
 
 int collatz_eval (int i, int j) {
-    // <your code>
-    return 1;}
+  int maxLen = 0;
+  int cycleLen = 0;
+  int tmp;
+
+  assert (i != j);
+  assert (i != 0);
+  assert (j != 0);
+
+  if (i > j) {
+    tmp = i;
+    i = j;
+    j = tmp;
+  }
+  for (int k = i; k < j; k++) {
+    cycleLen = cycle_length (k);
+    maxLen = cycleLen > maxLen ? cycleLen : maxLen;
+  }
+
+  return maxLen;
+}
 
 // -------------
 // collatz_print
